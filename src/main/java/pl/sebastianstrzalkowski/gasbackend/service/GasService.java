@@ -18,8 +18,8 @@ public class GasService {
     private GasPriceRepository gasPriceRepository;
 
 
-    private String url = System.getenv("REDISCLOUD_URL");
-    private Jedis jedis = new Jedis(url);
+//    private String url = System.getenv("REDISCLOUD_URL");
+    private Jedis jedis = new Jedis();
 
     public Result getGasPrice(){
 
