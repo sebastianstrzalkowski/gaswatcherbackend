@@ -76,6 +76,7 @@ public class GasService {
             poolConfig.setTestOnBorrow(true);
             poolConfig.setTestOnReturn(true);
             poolConfig.setTestWhileIdle(true);
+            poolConfig.setMaxWaitMillis(1000);
 
             return new JedisPool(poolConfig,
                     URI.create(System.getenv("REDISCLOUD_URL")),
