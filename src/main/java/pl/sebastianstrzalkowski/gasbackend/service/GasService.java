@@ -29,10 +29,15 @@ public class GasService {
 
 
 //    private String url = System.getenv("REDISCLOUD_URL");
-//    private Jedis jedis = new Jedis();
+    private Jedis jedis = new Jedis();
+
+
+    public GasService(){
+        jedis = getPool().getResource();
+    }
 
     public Result getGasPrice(){
-        Jedis jedis = getPool().getResource();
+
         String fastPrice = jedis.get("price:fast");
         String safePrice = jedis.get("price:safe");
         String proposePrice = jedis.get("price:propose");

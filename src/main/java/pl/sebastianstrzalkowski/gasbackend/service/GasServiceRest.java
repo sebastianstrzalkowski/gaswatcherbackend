@@ -27,10 +27,13 @@ public class GasServiceRest {
 
 //    private Jedis jedis = new Jedis();
     RestTemplate restTemplate = new RestTemplate();
+    Jedis jedis;
+
+    public GasServiceRest(){
+        jedis = getPool().getResource();
+    }
 
     public GasPrice getPrice() {
-
-        Jedis jedis = getPool().getResource();
         String resource
                 = "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=2H9H8Y61IICBX26XZESEFU59E5BZ8QHRWJ";
         ResponseEntity<GasPrice> response
