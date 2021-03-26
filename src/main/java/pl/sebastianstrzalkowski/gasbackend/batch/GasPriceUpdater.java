@@ -21,7 +21,7 @@ public class GasPriceUpdater {
     public void execute(){
         GasPrice gasPrice = gasServiceRest.getPrice();
         GasPriceDao gasPriceDao = new GasPriceDao(gasPrice.getResult());
-        gasPriceRepository.save(gasPriceDao);
+//        gasPriceRepository.save(gasPriceDao);
 //        Logger.getAnonymousLogger().info(gasPrice.toString());
     }
 
