@@ -17,9 +17,12 @@ public class GasService {
     @Autowired
     private GasPriceRepository gasPriceRepository;
 
-    private Jedis jedis = new Jedis();
+
+    private String url = System.getenv("REDISCLOUD_URL");
+    private Jedis jedis = new Jedis(url);
 
     public Result getGasPrice(){
+
         String fastPrice = jedis.get("price:fast");
         String safePrice = jedis.get("price:safe");
         String proposePrice = jedis.get("price:propose");
