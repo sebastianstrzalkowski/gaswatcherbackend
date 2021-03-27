@@ -17,7 +17,7 @@ public class GasPriceUpdater {
     @Autowired
     private GasPriceRepository gasPriceRepository;
 
-    @Scheduled(fixedRate = 1250)
+    @Scheduled(fixedRate = 2000)
     public void execute(){
         GasPrice gasPrice = gasServiceRest.getPrice();
         GasPriceDao gasPriceDao = new GasPriceDao(gasPrice.getResult());
